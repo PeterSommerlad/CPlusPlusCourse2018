@@ -33,6 +33,6 @@
 
 # Cevelop
 
-/.metadata/
-/Debug/
-/Release/
+.metadata/
+Debug/
+Release/
