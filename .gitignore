@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+# Cevelop
+
+/.metadata/
+/Debug/
+/Release/
