@@ -1,0 +1,14 @@
+<testsuites>
+	<testsuite name="AllTests" tests="2">
+		<testcase classname="AllTests" name="testEven">
+			<failure message="../src/Test.cpp:12 testEven: isEven(2)">
+testEven: isEven(2)
+			</failure>
+		</testcase>
+		<testcase classname="AllTests" name="testOdd">
+			<failure message="../src/Test.cpp:16 testOdd: !isEven(3)">
+testOdd: !isEven(3)
+			</failure>
+		</testcase>
+	</testsuite>
+</testsuites>

@@ -1,0 +1,7 @@
+<testsuites>
+	<testsuite name="AllTests" tests="3">
+		<testcase classname="AllTests" name="testIntsUpToZero"/>
+		<testcase classname="AllTests" name="testIntsUpToWithRange"/>
+		<testcase classname="AllTests" name="testIntsUpToThrowsForReverseRange"/>
+	</testsuite>
+</testsuites>
