@@ -1,8 +1,8 @@
 #ifndef SACK_H_
 #define SACK_H_
 
+#include <initializer_list>
 #include <stdexcept>
-#include <string>
 #include <vector>
 
 template<typename T>
@@ -10,16 +10,42 @@ class Sack {
 	using SackType = std::vector<T>;
 	using size_type = typename SackType::size_type;
 	SackType theSack{};
+
 public:
+	Sack() = default;
+
+	template <typename Iter>
+	Sack(Iter begin, Iter end)
+			: theSack(begin, end) {
+	}
+
+	Sack(std::initializer_list<T> values)
+			: theSack(values) {
+	}
+
+
+	Sack(size_type n, T const & value)
+			: theSack(n, value) {
+	}
+
+
+	template <typename Elt>
+	explicit operator std::vector<Elt>() const {
+		return std::vector<Elt>(begin(theSack), end(theSack));
+	}
+
 	bool empty() const {
 		return theSack.empty();
 	}
+
 	size_type size() const {
 		return theSack.size();
 	}
+
 	void putInto(T const & item) {
 		theSack.push_back(item);
 	}
+
 	T getOut() {
 		if (empty()) {
 			throw std::logic_error{"Empty Sack"};
@@ -31,41 +57,8 @@ public:
 	}
 };
 
-
-template<typename T>
-struct Sack<T *> {
-	~Sack() = delete;
-};
-
-
-template<typename T> class Sack;
-
-template<>
-class Sack<char const *> {
-	using SackType = std::vector<std::string>;
-	using size_type = SackType::size_type;
-	SackType theSack;
-public:
-	// no explicit  ctor / dtor  required
-	bool empty() const {
-		return theSack.empty();
-	}
-	size_type size() const {
-		return theSack.size();
-	}
-	void putInto(char const *item) {
-		theSack.push_back(item);
-	}
-	std::string getOut() {
-		if (empty()) {
-			throw std::logic_error { "empty Sack" };
-		}
-		std::string result = theSack.back();
-		theSack.pop_back();
-		return result;
-	}
-};
-
+template <typename Iter>
+Sack(Iter begin, Iter end) -> Sack<typename std::iterator_traits<Iter>::value_type>;
 
 
 #endif /* SACK_H_ */
