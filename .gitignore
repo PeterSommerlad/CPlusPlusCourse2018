@@ -34,5 +34,6 @@
 # Cevelop
 
 .metadata/
+.settings/
 Debug/
 Release/
