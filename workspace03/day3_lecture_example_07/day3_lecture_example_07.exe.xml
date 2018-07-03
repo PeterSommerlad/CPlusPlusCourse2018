@@ -1,0 +1,13 @@
+<testsuites>
+	<testsuite name="AllTests" tests="9">
+		<testcase classname="AllTests" name="createSackFromIterators"/>
+		<testcase classname="AllTests" name="defaultConstructorStillWorks"/>
+		<testcase classname="AllTests" name="creationAlsoAllowsTwoIntsBraces"/>
+		<testcase classname="AllTests" name="creationAlsoAllowsTwoIntsParens"/>
+		<testcase classname="AllTests" name="createSackFromInitializerList"/>
+		<testcase classname="AllTests" name="testConvertSackToVector"/>
+		<testcase classname="AllTests" name="testImplicitDeductionGuide"/>
+		<testcase classname="AllTests" name="testDeductionForIterators"/>
+		<testcase classname="AllTests" name="testDeductionAndMultiDefaultConstruction"/>
+	</testsuite>
+</testsuites>

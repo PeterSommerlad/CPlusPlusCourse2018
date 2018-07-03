@@ -12,7 +12,7 @@ class Sack {
 	SackType theSack{};
 
 public:
-	Sack() = default;
+//	Sack() = default;
 
 	template <typename Iter>
 	Sack(Iter begin, Iter end)
