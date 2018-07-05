@@ -1,0 +1,6 @@
+<testsuites>
+	<testsuite name="AllTests" tests="2">
+		<testcase classname="AllTests" name="testSampleInput"/>
+		<testcase classname="AllTests" name="testReadWithSingleArgument"/>
+	</testsuite>
+</testsuites>
