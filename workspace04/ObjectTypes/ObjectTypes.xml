@@ -1,0 +1,19 @@
+<testsuites>
+	<testsuite name="AllTests" tests="11">
+		<testcase classname="AllTests" name="poly::testRect"/>
+		<testcase classname="AllTests" name="poly::testCircle"/>
+		<testcase classname="AllTests" name="poly::testPolyScreenManager"/>
+		<testcase classname="AllTests" name="poly::testComposite"/>
+		<testcase classname="AllTests" name="poly::testRefComposite"/>
+		<testcase classname="AllTests" name="sean::testRect"/>
+		<testcase classname="AllTests" name="sean::testCircle"/>
+		<testcase classname="AllTests" name="sean::testComposite">
+			<failure message="../src/Test.cpp:282 testComposite: &quot;{ circle:42,rectangle:4,2,circle:4,an_int:42,a c string, }&quot; == out.str() expected:	{ circle:42,rectangle:4,2,circle:4,an_int:42,a c string, }	but was:	{ circle:42,rectangle:4,2,circle:4,an_int:42,string:a c string, }	">
+testComposite: &quot;{ circle:42,rectangle:4,2,circle:4,an_int:42,a c string, }&quot; == out.str() expected:	{ circle:42,rectangle:4,2,circle:4,an_int:42,a c string, }	but was:	{ circle:42,rectangle:4,2,circle:4,an_int:42,string:a c string, }	
+			</failure>
+		</testcase>
+		<testcase classname="AllTests" name="sean::testPolyScreenManager"/>
+		<testcase classname="AllTests" name="any_ns::demoAny"/>
+		<testcase classname="AllTests" name="poly::testPolyScreenManagerFactory"/>
+	</testsuite>
+</testsuites>
