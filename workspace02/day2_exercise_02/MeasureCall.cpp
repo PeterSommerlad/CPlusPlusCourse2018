@@ -10,7 +10,7 @@ void callByReference(std::string const & parameter) {
 }
 
 
-template <typename Function, typename Argument>
+template <typename Duration = std::chrono::milliseconds, typename Function, typename Argument>
 auto measure(Function const & functionToMeasure, Argument const & arg, unsigned repetitions) {
 	using Time = std::chrono::high_resolution_clock;
 	auto startTime = Time::now();
@@ -18,7 +18,8 @@ auto measure(Function const & functionToMeasure, Argument const & arg, unsigned 
 		functionToMeasure(arg);
 	}
 	auto endTime = Time::now();
-	return endTime - startTime;
+	auto duration = endTime - startTime;
+	return std::chrono::duration_cast<Duration>(duration).count() /repetitions;
 }
 
 int main() {
@@ -28,8 +29,8 @@ int main() {
 	unsigned const repetitions = 100u;
 
 	auto callByValueDuration = measure(callByValue, largeString, repetitions);
-	std::cout << "Average call by value duration: " << std::chrono::duration_cast<Duration>(callByValueDuration).count() /repetitions << "ms\n";
+	std::cout << "Average call by value duration: " << callByValueDuration << "ms\n";
 
 	auto callByReferenceDuration = measure(callByReference, largeString, repetitions);
-	std::cout << "Average call by reference duration: " << std::chrono::duration_cast<Duration>(callByReferenceDuration).count() / repetitions << "ms\n";
+	std::cout << "Average call by reference duration: " << callByReferenceDuration << "ms\n";
 }

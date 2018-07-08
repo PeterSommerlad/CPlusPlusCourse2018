@@ -11,15 +11,24 @@ void callByReference(std::string const & parameter) {
 }
 
 
+void arbitraryFunction(int, double, std::string) {
+
+}
+
 template <typename Function, typename...Arguments>
 auto measure(Function const & functionToMeasure, unsigned repetitions, Arguments const &...args) {
 	using Time = std::chrono::high_resolution_clock;
 	auto startTime = Time::now();
 	for (auto i = 0u; i < repetitions; ++i) {
-		std::invoke(functionToMeasure, args...);
+		functionToMeasure(args...);
 	}
 	auto endTime = Time::now();
 	return endTime - startTime;
+}
+
+template <typename...Args>
+auto createContainer(Args const &...args) {
+	return std::vector{args...};
 }
 
 int main() {
@@ -33,4 +42,9 @@ int main() {
 
 	auto callByReferenceDuration = measure(callByReference, repetitions, largeString);
 	std::cout << "Average call by reference duration: " << std::chrono::duration_cast<Duration>(callByReferenceDuration).count() / repetitions << "ms\n";
+
+	measure(arbitraryFunction, 100, 1, 1.5, "adsf");
+
+
+	createContainer(1, 2, 3.4, 4);
 }

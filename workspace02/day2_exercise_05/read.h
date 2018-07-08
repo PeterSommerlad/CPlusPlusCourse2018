@@ -19,6 +19,8 @@
 template<typename...T>
 void read(std::istream & in, T &...pack) {
   (in >> ... >> pack);
+  int a;
+  std::move(a);
 }
 
 
